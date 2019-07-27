@@ -4,13 +4,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Problem02Test {
+public class CalcProductArrayTest {
 
-	private Problem02 problem;
+	private CalcProductArray problem;
 
 	@Before
 	public void SetUp() {
-		problem = new Problem02();
+		problem = new CalcProductArray();
 	}
 
 	@Test

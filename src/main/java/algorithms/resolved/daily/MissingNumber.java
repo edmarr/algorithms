@@ -14,7 +14,7 @@ import java.util.Arrays;
  * 
  * 
  */
-public class Problem04 {
+public class MissingNumber {
 
 	public int missingInteger(int[] arr) {
 		int[] arrOrdered = Arrays.copyOf(arr, arr.length);
@@ -34,4 +34,19 @@ public class Problem04 {
 		}
 		return missing;
 	}
+
+	/**
+	 * Array always need contain zero TODO let code. 
+	 * @param arr
+	 * @return
+	 */
+	public int missingIntegerFast(int[] arr) {
+		int sum = 0;
+		for (int i : arr) {
+			sum += i;
+		}
+		int n = arr.length + 1;
+		return (n * (n - 1) / 2) - sum;
+	}
+
 }

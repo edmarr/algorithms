@@ -10,7 +10,7 @@ package algorithms.resolved.daily;
  * be [2, 3, 6]
  *
  */
-public class Problem02 {
+public class CalcProductArray {
 
 	public int[] print01(int[] arrIn) {
 		int[] arrOut = new int[arrIn.length];

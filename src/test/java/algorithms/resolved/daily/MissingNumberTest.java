@@ -4,13 +4,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Problem04Test {
+public class MissingNumberTest {
 
-	private Problem04 problem;
+	private MissingNumber problem;
 
 	@Before
 	public void SetUp() {
-		problem = new Problem04();
+		problem = new MissingNumber();
 	}
 
 	@Test
@@ -23,6 +23,13 @@ public class Problem04Test {
 	public void solution3Test() {
 		int arr[] = { 1, 2, 0 };
 		Assert.assertEquals(3, problem.missingInteger(arr));
+	}
+	
+	
+	@Test
+	public void solution2FastTest() {
+		int arr[] = { 3, 4,0, 1 };
+		Assert.assertEquals(2, problem.missingIntegerFast (arr));
 	}
 
     

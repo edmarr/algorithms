@@ -13,7 +13,7 @@ import java.util.Arrays;
  *
  */
 
-public class Problem01 {
+public class SumNumberArray {
 
 	public int[] solution1(int k, int[] arr) {
 		int[] check = Arrays.copyOf(arr, arr.length);
