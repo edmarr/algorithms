@@ -22,9 +22,6 @@ public class MinCostRoadTest {
 		int[][] costNewRoadsConstruct = { { 1, 2, 5 }, { 1, 3, 10 }, { 1, 6, 2 }, { 5, 6, 5 } };
 		Assert.assertEquals(Integer.valueOf(7), problem.getMinCostToConstruct(numTotalAvailableCities, numTotalAvailableRoads, roadsAvailable,
 				numNewRoadConstruct, costNewRoadsConstruct));
-	        
-	         
-	  
 	}
 	
 

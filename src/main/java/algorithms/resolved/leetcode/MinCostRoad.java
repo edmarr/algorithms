@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class MinCostRoad {
 	Map<Integer, Integer> cities = new HashMap<>();
@@ -20,22 +21,23 @@ public class MinCostRoad {
 			numCities--;
 		}
 
-		for (int[] route : roadsAvailable) {
-			System.out.println(route[0] + " x > y " + route[1]);
-			union(route[0], route[1]);
+		for (int[] city : roadsAvailable) {
+			System.out.println(city[0] + " x > y " + city[1]);
+			union(city[0], city[1]);
 		}
 
-		PriorityQueue<int[]> queue = new PriorityQueue<int[]>(new Comparator<int[]>() {
-			public int compare(int[] a, int[] b) {
-				return a[2] - b[2];
+		Queue<int[]> queue = new PriorityQueue<int[]>(new Comparator<int[]>() {
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				return o1[2] - o2[2];
 			}
 		});
 
-		for (int[] route : costRoadsToBeRepaired) {
-			queue.add(route);
+		for (int[] city : costRoadsToBeRepaired) {
+			queue.add(city);
 		}
 
-		while (queue.size() > 0) {
+		while (!queue.isEmpty()) {
 			int[] poll = queue.poll();
 			int x = getParent(poll[0]);
 			int y = getParent(poll[1]);
@@ -47,7 +49,7 @@ public class MinCostRoad {
 			}
 
 		}
-		System.out.println(cost);
+
 		return cost;
 	}
 
@@ -55,19 +57,17 @@ public class MinCostRoad {
 		int x = getParent(i);
 		int y = getParent(j);
 
-		System.out.println(y + " union " + x);
-
 		if (x != y) {
 			cities.put(y, x);
 		}
+
 	}
 
-	private Integer getParent(Integer i) {
+	private int getParent(int i) {
 		if (cities.get(i) != i) {
 			cities.put(i, getParent(cities.get(i)));
 		}
 		return cities.get(i);
-
 	}
 
 }

@@ -14,13 +14,12 @@ public class FindPathTreasure {
 		boolean isFound = false;
 		while (!isFound) {
 			System.out.println("Values [i][j] " + i + "," + j + " : " + grid[i][j]);
-
 			if (grid[i][j] == 'X') {
 				isFound = true;
-			} else if (grid[i + 1][j] != 'D') {
+			} else if (isSecureDow(grid, destination, i, j)) {
 				i++;
 				points.add(new Point(i, j));
-			} else if (destination.y <= j && grid[i][j - 1] != 'D') {
+			} else if (isSecureLeft(grid, destination, i, j)) {
 				j--;
 				points.add(new Point(i, j));
 			} else {
@@ -29,6 +28,14 @@ public class FindPathTreasure {
 			}
 		}
 		return points.size();
+	}
+
+	private boolean isSecureLeft(char[][] grid, Point destination, int i, int j) {
+		return destination.y <= j && grid[i][j - 1] != 'D';
+	}
+
+	private boolean isSecureDow(char[][] grid, Point destination, int i, int j) {
+		return destination.x <= grid[i + 1][j] && grid[i + 1][j] != 'D';
 	}
 
 	private Point checkPath(char[][] grid) {
@@ -57,8 +64,10 @@ public class FindPathTreasure {
 	}
 
 	public static void main(String[] args) {
-		char[][] grid = { { 'O', 'O', 'O', 'O' }, { 'D', 'O', 'D', 'O' }, { 'O', 'O', 'O', 'O' },
-				{ 'X', 'D', 'D', 'O' } };
+		char[][] grid = { { 'O', 'O', 'O', 'O' }, 
+						  { 'D', 'O', 'D', 'O' }, 
+						  { 'O', 'O', 'O', 'O' },
+				          { 'X', 'D', 'D', 'O' } };
 
 		System.out.println(new FindPathTreasure().minSteps(grid));
 	}
