@@ -14,7 +14,7 @@ public class MinCostRoad {
 		if (numCities < 1) {
 			return cost;
 		}
-		int visit = numCities;
+
 		while (numCities > 0) {
 			cities.put(numCities, numCities);
 			numCities--;
@@ -23,7 +23,6 @@ public class MinCostRoad {
 		for (int[] route : roadsAvailable) {
 			System.out.println(route[0] + " x > y " + route[1]);
 			union(route[0], route[1]);
-			visit--;
 		}
 
 		PriorityQueue<int[]> queue = new PriorityQueue<int[]>(new Comparator<int[]>() {
@@ -35,41 +34,40 @@ public class MinCostRoad {
 		for (int[] route : costRoadsToBeRepaired) {
 			queue.add(route);
 		}
-		
-		while(visit != 0 &&  queue.size() > 0) {
+
+		while (queue.size() > 0) {
 			int[] poll = queue.poll();
 			int x = getParent(poll[0]);
 			int y = getParent(poll[1]);
-			int value = getParent(2);
-			
-			if(x != y) {
-				union(x, y);
-				cost = cost+ value;
-			}
-			visit--;
-			
-		}
+			int value = poll[2];
 
+			if (x != y) {
+				union(y, x);
+				cost = cost + value;
+			}
+
+		}
+		System.out.println(cost);
 		return cost;
 	}
 
 	private void union(int i, int j) {
 		int x = getParent(i);
 		int y = getParent(j);
-		
-		System.out.println( y +  " union " +  x );
-		
+
+		System.out.println(y + " union " + x);
+
 		if (x != y) {
-			cities.put(y,x);
+			cities.put(y, x);
 		}
 	}
 
 	private Integer getParent(Integer i) {
-        if(cities.get(i) != i){
-            cities.put(i, getParent(cities.get(i)));
-        }
-        return cities.get(i);
-        
+		if (cities.get(i) != i) {
+			cities.put(i, getParent(cities.get(i)));
+		}
+		return cities.get(i);
+
 	}
 
 }
