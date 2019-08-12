@@ -16,21 +16,12 @@ public class CutOffTreesforGolfEvent {
 
 	public int cutOffTree(List<List<Integer>> forest) {
 
-		if (forest.size() > 50 || forest.get(0).size() > 50) {
-			return -1;
-		}
-
-		if (forest.get(0).get(0) < 1) {
-			return -1;
-		}
-
 		List<int[]> allTrees = getAllTrees(forest);
 
 		Collections.sort(allTrees, new Comparator<int[]>() {
-
 			@Override
 			public int compare(int[] o1, int[] o2) {
-				return o1[1] - o1[2];
+				return o1[2] - o2[2];
 			}
 		});
 
@@ -67,17 +58,17 @@ public class CutOffTreesforGolfEvent {
 			int size = queue.size();
 			for (int i = 0; i < size; i++) {
 				int[] cell = queue.poll();
-				if(cell[0] == valueX && cell[1] == valueY) {
+				if (cell[0] == valueX && cell[1] == valueY) {
 					return minSteps;
 				}
-				for(int [] direction : directions) {
+				for (int[] direction : directions) {
 					int nx = cell[0] + direction[0];
 					int ny = cell[1] + direction[1];
-					if(nx >= 0 && nx < rows && ny>0 && ny < cols && !visited[nx][ny] && forest.get(nx).get(ny) != 0) {
-						queue.add(new int[] {nx , ny});
+					if (nx >= 0 && nx < rows && ny > 0 && ny < cols && !visited[nx][ny]	&& forest.get(nx).get(ny) != 0) {
+						queue.add(new int[] { nx, ny });
 						visited[nx][ny] = true;
 					}
-					
+
 				}
 			}
 			minSteps++;
