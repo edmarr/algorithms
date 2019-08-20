@@ -62,7 +62,7 @@ public class LevelOrder {
 		insert(node, 3);
 		insert(node, 6);
 		insert(node, 4);
-		new LevelOrder().levelOrder(node);
+		levelOrder(node);
 	}
 
 }
