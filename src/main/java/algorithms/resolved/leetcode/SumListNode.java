@@ -1,14 +1,5 @@
 package algorithms.resolved.leetcode;
 
-class ListNode {
-	int val;
-	ListNode next;
-
-	ListNode(int x) {
-		val = x;
-	}
-}
-
 class SumListNode {
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		ListNode root = new ListNode(0);
