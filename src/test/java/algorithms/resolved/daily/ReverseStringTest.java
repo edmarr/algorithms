@@ -1,6 +1,5 @@
 package algorithms.resolved.daily;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,14 +16,14 @@ public class ReverseStringTest {
 
 	@Test
 	public void solution2Test() {
-		//String in[] = new String[] { "H", "e", "l", "l", "o" };
-		//String in[] = new String[] { "H", "a", "n", "n", "a", "h" };
-		  String in[] = new String[] {"A"," ","m","a","n",","," ","a"," ","p","l","a","n",","," ","a"," ","c","a","n","a","l",":"," ","P","a","n","a","m","a"};
-		
-		
-		char arrIn [] = new char [in.length] ;
-		for(int i = 0 ; i < in.length ; i++) {
-			arrIn[i] =  in[i].charAt(0);
+		// String in[] = new String[] { "H", "e", "l", "l", "o" };
+		// String in[] = new String[] { "H", "a", "n", "n", "a", "h" };
+		String in[] = new String[] { "A", " ", "m", "a", "n", ",", " ", "a", " ", "p", "l", "a", "n", ",", " ", "a",
+				" ", "c", "a", "n", "a", "l", ":", " ", "P", "a", "n", "a", "m", "a" };
+
+		char arrIn[] = new char[in.length];
+		for (int i = 0; i < in.length; i++) {
+			arrIn[i] = in[i].charAt(0);
 		}
 
 		problem.reverseString(arrIn);
