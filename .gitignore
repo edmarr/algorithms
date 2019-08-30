@@ -84,3 +84,4 @@ target/
 .history
 
 # End of https://www.gitignore.io/api/eclipse,visualstudiocode
+.vscode/launch.json
