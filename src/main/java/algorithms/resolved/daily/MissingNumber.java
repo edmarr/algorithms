@@ -36,7 +36,8 @@ public class MissingNumber {
 	}
 
 	/**
-	 * Array always need contain zero TODO let code. 
+	 * Array always need contain zero let code.
+	 * 
 	 * @param arr
 	 * @return
 	 */
