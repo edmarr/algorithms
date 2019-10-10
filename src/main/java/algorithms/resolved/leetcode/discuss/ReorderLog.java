@@ -11,19 +11,17 @@ public class ReorderLog {
 			String[] split2 = s2.split(" ", 2);
 			boolean isDigit1 = Character.isDigit(split1[1].charAt(0));
 			boolean isDigit2 = Character.isDigit(split2[1].charAt(0));
-
 			if (!isDigit1 && !isDigit2) {
 				int comp = split1[1].compareTo(split2[1]);
-				if (comp != 0)
-					return comp;
-				else
+				if (comp == 0) {
 					return split1[0].compareTo(split2[0]);
+				} else {
+					return comp;
+				}
 			} else {
 				return isDigit1 ? (isDigit2 ? 0 : 1) : -1;
 			}
-
 		};
-
 		Arrays.sort(logs, comparator);
 		return logs;
 	}
