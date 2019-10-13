@@ -1,4 +1,4 @@
-package algorithms.resolved.leetcode;
+package algorithms.resolved.leetcode.discuss;
 
 import java.util.Arrays;
 

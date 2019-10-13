@@ -1,4 +1,4 @@
-package algorithms.resolved.leetcode;
+package algorithms.resolved.leetcode.discuss;
 
 public class BuySellStockI {
 	public int maxProfit(int[] prices) {

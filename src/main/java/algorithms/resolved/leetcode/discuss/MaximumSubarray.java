@@ -1,4 +1,4 @@
-package algorithms.resolved.leetcode;
+package algorithms.resolved.leetcode.discuss;
 
 public class MaximumSubarray {
 	public int max(int[] nums) {
