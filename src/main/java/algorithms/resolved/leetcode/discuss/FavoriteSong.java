@@ -6,13 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 
- * invert map: song -> genre groupby: user -> [genre, [song]] count: user ->
- * [genre, count] select having=max: user -> [genre]
- * 
- * 
- */
 public class FavoriteSong {
     Map<String, List<String>> favoriteGenre(Map<String, List<String>> userSongs, Map<String, List<String>> songGenres) {
         Map<String, String> songToGenre = new HashMap<>();
@@ -53,12 +46,27 @@ public class FavoriteSong {
 
         Map<String, List<String>> result = new FavoriteSong().favoriteGenre(userSongs, songGenres);
         for (String key : result.keySet()) {
-            System.out.print("##################################");
+            System.out.println("##################################");
             System.out.println(key);
             result.get(key).forEach(System.out::print);
             System.out.println();
 
         }
+        userSongs.clear();;
+        userSongs.put("David", Arrays.asList("song1", "song2", "song3", "song4", "song8"));
+        userSongs.put("Ema", Arrays.asList("song5", "song6", "song7"));
+
+        songGenres.clear();
+       
+        result = new FavoriteSong().favoriteGenre(userSongs, songGenres);
+        for (String key : result.keySet()) {
+            System.out.println("##################################");
+            System.out.println(key);
+            result.get(key).forEach(System.out::print);
+            System.out.println();
+
+        }
+
     }
 
 }
