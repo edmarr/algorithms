@@ -1,5 +1,7 @@
 package algorithms.resolved.ctci.chapterOne;
 
+//Implement an algorithm to determine if a string has all unique characters.What if you cannot use additional data structures?
+
 public class IsUniqueChars {
     public boolean isUnique(String str) {
         int check = 0;
