@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import algorithms.resolved.leetcode.MostCommonWorld;
-
 public class MostCommonWorldTest {
 	private MostCommonWorld problem;
 
